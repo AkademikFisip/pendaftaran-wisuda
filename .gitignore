@@ -1,0 +1,16 @@
+# Abaikan folder uploads
+uploads/
+
+# Abaikan file database
+backend/db.php
+
+# Abaikan semua file log
+*.log
+
+# Abaikan pengaturan editor (misalnya VSCode atau IntelliJ IDEA)
+.vscode/
+.idea/
+
+# Abaikan file sistem
+.DS_Store
+Thumbs.db

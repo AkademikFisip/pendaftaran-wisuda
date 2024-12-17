@@ -1,83 +1,115 @@
+/* Reset */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
-    flex-direction: column; /* Supaya judul muncul di atas */
 }
 
-.container {
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    background-color: #f9a825;
+    padding: 10px 20px;
+    color: white;
+}
+
+header img {
+    max-height: 50px;
+    margin-right: 15px;
+}
+
+.header-text h1, .header-text h2 {
+    margin: 0;
+    font-weight: bold;
+}
+
+header h1 { font-size: 20px; }
+header h2 { font-size: 16px; }
+
+/* Kontainer Utama */
+.page-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Tidak mengganggu judul */
-    width: 90%;
-    max-width: 1200px;
+    align-items: center;
+    padding: 20px;
     gap: 20px;
-    flex-wrap: wrap; /* Supaya konten di bawah judul bisa menyesuaikan */
-}
-
-/* Container utama */
-.page-container {
-    width: 100%;
-    max-width: 1200px;
-    text-align: center;
 }
 
 /* Gambar */
 .image-container {
-    flex: 1; /* Mengatur proporsi agar seimbang */
-    max-width: 50%; /* Atur lebar maksimal */
+    flex: 1;
+    max-width: 50%;
 }
 
 .image-container img {
     width: 100%;
-    height: auto;
     border-radius: 8px;
 }
 
+/* Form Login */
 .form-container {
     flex: 1;
-    max-width: 50%;
-    background-color: #fff;
+    max-width: 400px;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: center;
 }
 
-.form-container .logo {
+.form-container h3 {
+    color: #f9a825;
+    font-weight: bold;
+    text-transform: uppercase;
     margin-bottom: 20px;
 }
 
-.form-container .logo img {
-    max-width: 100px; /* Sesuaikan ukuran logo */
-    height: auto;
-}
-
-h3 {
-    font-size: 24px;
-    color: #ff6600;
-    margin-bottom: 20px;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 90%;
-    padding: 10px;
+.input-container {
+    position: relative;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px 15px; /* Padding horizontal lebih besar */
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Memastikan padding tidak mempengaruhi ukuran */
+}
+
+/* Fokus pada Input */
+.input-container input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Styling untuk Ikon Mata */
+.toggle-password {
+    position: absolute;
+    right: 10px; /* Posisikan ikon ke kanan */
+    top: 50%; /* Pusatkan vertikal */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    font-size: 18px;
+}
+
+.toggle-password:hover {
+    color: #007bff;
 }
 
 button {
-    width: 90%;
+    width: 100%;
     padding: 10px;
     background-color: #007bff;
-    color: #fff;
+    color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -88,40 +120,22 @@ button:hover {
     background-color: #0056b3;
 }
 
-.register-text {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
-}
-
-.register-text a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.register-text a:hover {
-    text-decoration: underline;
-}
-
-.title-container {
+/* Footer */
+footer {
+    background-color: #003366;
+    color: white;
     text-align: center;
-    margin-bottom: 20px;
-    width: 100%; /* Pastikan judul memanfaatkan lebar penuh */
+    padding: 10px;
+    font-size: 14px;
+    margin-top: auto;
 }
 
-.main-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-}
-
-/* Konten (gambar dan form login berdampingan) */
-.content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap; /* Supaya tetap rapi di layar kecil */
+/* Responsif */
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+    .image-container, .form-container {
+        max-width: 100%;
+    }
 }

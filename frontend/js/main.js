@@ -1,19 +1,21 @@
-function togglePassword() {
+function togglePasswordVisibility() {
     const passwordInput = document.getElementById('password');
-    const type = passwordInput.type === 'password' ? 'text' : 'password';
-    passwordInput.type = type;
-  }
-  
+    const toggleIcon = document.querySelector('.toggle-password');
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.textContent = "🙈"; // Ikon mata tertutup
+    } else {
+        passwordInput.type = "password";
+        toggleIcon.textContent = "👁️"; // Ikon mata terbuka
+    }
+}
+
 document.getElementById('loginBtn').addEventListener('click', function (e) {
-    const npmInput = document.querySelector('input[placeholder="Masukkan NPM"]');
+    const npmInput = document.getElementById('npm');
     const passwordInput = document.getElementById('password');
     
-    if (!npmInput.value || !passwordInput.value) {
-        e.preventDefault(); // Hentikan pengiriman form jika input kosong
-        alert('Mohon isi semua field!');
-        return;
+    if (!npmInput.value.trim() || !passwordInput.value.trim()) {
+        e.preventDefault();
+        alert('Mohon isi NPM dan Password!');
     }
-
-    this.classList.add('loading');
-    this.querySelector('.spinner').style.display = 'inline-block';
 });
